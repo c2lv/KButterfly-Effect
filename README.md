@@ -6,10 +6,10 @@
 
 본 경진대회에 참여하는 나비효과 팀의 팀원과 역할은 다음과 같다. (가나다 순으로 나열)
 
-- 김제현 (디자이너)
-- 박현준(https://github.com/c2lv) (개발자)
-- 이태검(https://github.com/LeeTaeGeom) (개발자)
-- 이형석(https://github.com/lhs961021) (개발자)(팀장)
+- [김제현] (디자이너)
+- [박현준](https://github.com/c2lv) (개발자)
+- [이태검](https://github.com/LeeTaeGeom) (개발자)
+- [이형석](https://github.com/lhs961021) (개발자)(팀장)
 
 ### 1.1. 참여 과제
 
