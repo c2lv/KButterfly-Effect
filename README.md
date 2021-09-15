@@ -4,12 +4,12 @@
 
 ## 1. 팀 구성
 
-본 경진대회에 참여하는 나비효과 팀의 팀원과 역할은 다음과 같다. (가나다 순으로 나열)
+본 경진대회에 참여하는 나비효과 팀의 팀원과 팀원의 역할은 다음과 같다. (가나다 순으로 나열)
 
 -  김제현 (디자이너)
 - [박현준](https://github.com/c2lv) (개발자)
 - [이태검](https://github.com/LeeTaeGeom) (개발자)
-- [이형석](https://github.com/lhs961021) (개발자)(팀장)
+- [이형석](https://github.com/lhs961021) (개발자, 팀장)
 
 ### 1.1. 참여 과제
 
@@ -28,8 +28,8 @@
 ## 2. 프로그래밍 언어
 
 본 프로젝트는
-[**Python**](https://www.python.org)을 메인 프로그래밍 언어를 사용하고,
-[**Django**](https://www.djangoproject.com)을 메인으로 이용한다.
+[**Python**](https://www.python.org)을 메인 프로그래밍 언어로 사용하고, 
+웹 프레임워크로 [**Django**](https://www.djangoproject.com)를 이용한다.
 
 ### 2.1. 외부 라이브러리의 사용
 
