@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section style= "margin:0px 200px; margin-top:80px;">
+	<h1>{{post.title}}</h1>
+    <br>
+    <br>
+    
+    작성자 : {{post.writer}} <br>
+    해시태그 : {{post.hashtag}} <br>
+    환경 점수 : {{post.eco_score}} 점 <br>
+    마감날짜 : {{post.deadline}} <br>
+
+	{%if post.image%}
+    	<p>사진 : <img src="{{post.image.url}}" alt="사진"></p>
+    {%endif%}
+    
+
+    <p style="height:200px; word-wrap:break-word; overflow:scroll;">
+	{{post.body}}
+    </p>
+	
+	{% if user == post.writer %}
+    <a href="{%url 'posts:edit_post' post.id%}" class="btn btn-dark">수정하기</a>
+    <a href="{%url 'posts:delete' post.id%}" class="btn btn-dark">삭제하기</a>
+	{%endif%}
+	<hr>
+    
+</section>
+
+<br>
+{% endblock %}
