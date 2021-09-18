@@ -69,22 +69,15 @@
                   <a href="{% url 'posts:categories' %}" class="nav-link text-left">Categories</a>
                 </li>
                 <li>
-                  <a href="{% url 'posts:categories' %}" class="nav-link text-left">Politics</a>
+                  <a href="{% url 'about' %}" class="nav-link text-left">About</a>
                 </li>
+        
                 <li>
-                  <a href="{% url 'posts:categories' %}" class="nav-link text-left">Business</a>
+                  <a href="{% url 'contact' %}" class="nav-link text-left">Contact</a>
                 </li>
-                <li>
-                    <a href="{% url 'posts:categories' %}" class="nav-link text-left">Health</a>
-                </li>
-                <li><a href="{% url 'posts:categories' %}" class="nav-link text-left">Design</a></li>
-                <li>
-                  <a href="{% url 'posts:categories' %}" class="nav-link text-left">Sport</a>
-                </li>
-                <li><a href="{% url 'posts:contact' %}" class="nav-link text-left">Contact</a></li>
                 
                 {%if request.user.is_authenticated%}
-                {% comment %} <li><a href="{% url 'users:mypage' %}" class="nav-link text-left">Mypage</a></li> {% endcomment %}
+                <li><a href="{% url 'users:mypage' %}" class="nav-link text-left">Mypage</a></li>
                 <li><a href="{% url 'account_logout' %}" class="nav-link text-left">Logout</a></li>
                 {%else%}
                 <li><a href="{% url 'account_login' %}" class="nav-link text-left">Login</a></li>
