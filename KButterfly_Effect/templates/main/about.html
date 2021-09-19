@@ -17,12 +17,12 @@
             </p>
           </div>
           <div class="col-lg-6 pl-md-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam qui obcaecati eaque odio, alias nulla quae, aliquid, rerum consequuntur, quaerat blanditiis cupiditate eos doloribus dolor debitis! Ex eius deleniti, soluta!</p>
-            <p>Facilis sit molestiae deserunt quo corporis culpa dolorum animi architecto illum sapiente. Asperiores, placeat animi distinctio provident adipisci.</p>
+            <p>저희 나비효과는 '나를통해 비로소 지켜지는 환경'이라는 목표를 갖고있습니다.</p>
+            <p>Todo list를 통한 할일 추천을 통해 자연스럽게 나도 자연을 지키게 되는 나비효과</p>
             <ul class="ul-check list-unstyled success mt-5">
-              <li>Lorem ipsum dolor sit.</li>
-              <li>Cupiditate dolores rerum, consequatur!</li>
-              <li>Quia dolor molestias voluptatem?</li>
+              <li>우리의 환경을 변화시키면서 환경을 지키자</li>
+              <li>Todo List를 통해서 나로부터의 변화를 이끌어 내자</li>
+              <li>나비효과로 이루어지는 환경보호</li>
             </ul>
           </div>
         </div>
@@ -30,7 +30,7 @@
     </div>
 
 
-    <div class="site-section">
+    {% comment %} <div class="site-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
@@ -145,6 +145,45 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> {% endcomment %}
 
+      <section class="pt-4" id="team">
+
+        <div class="container">
+          <div class="row justify-content-center mb-6">
+            <div class="col-lg-6 col-xxl-5 text-center mx-auto mb-7">
+              <h5 class="fw-bold fs-3 fs-lg-5 fs-xxl-7 lh-sm mb-3">Team 나비효과</h5>
+              {% comment %} <p class="mb-0">Meet our Organization leaders and experts. Our leadership team drives our company and leads our people.</p> {% endcomment %}
+              <br><br>
+            </div>
+            <div class="col-xxl-11">
+              <div class="row flex-center gx-3">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/hyeongseok.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">이 형 석</h5>
+                  <p>개발자 / 팀장</p>
+                  <p>동국대학교 정보통신공학과 전공<br> 
+                  / 광고홍보학과 복수전공</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/hyeonjun.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">박 현 준</h5>
+                  <p>개발자</p>
+                  <p>동국대학교 교육학과 전공<br>
+                  / 융합소프트웨어 연계전공</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/taegeom.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">이 태 검</h5>
+                  <p>개발자</p>
+                  <p>동국대학교 정보통신공학과 전공<br> 
+                  / 데이터사이언스 연계전공</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/person_1.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">김 제 현</h5>
+                  <p>디자이너</p>
+                  <p>방송통신대학교 미디어영상전공</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
 {% endblock %}
