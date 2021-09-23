@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-12">
+          {% comment %} <div class="col-lg-12">
             <div class="section-title mb-5">
               <h2>Contact Us</h2>
             </div>
@@ -51,5 +51,44 @@
 
         
       </div>
-    </div>
+    </div> {% endcomment %}
+
+    <section class="pt-4" id="team">
+
+        <div class="container">
+          <div class="row justify-content-center mb-6">
+            <div class="col-lg-6 col-xxl-5 text-center mx-auto mb-7">
+              <h5 class="fw-bold fs-3 fs-lg-5 fs-xxl-7 lh-sm mb-3">Team 나비효과</h5>
+              {% comment %} <p class="mb-0">Meet our Organization leaders and experts. Our leadership team drives our company and leads our people.</p> {% endcomment %}
+              <br><br>
+            </div>
+            <div class="col-xxl-11">
+              <div class="row flex-center gx-3">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/hyeongseok.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">이 형 석</h5>
+                  <p>개발자 / 팀장</p>
+                  <p>동국대학교 정보통신공학과 전공<br> 
+                  / 광고홍보학과 복수전공</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/hyeonjun.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">박 현 준</h5>
+                  <p>개발자</p>
+                  <p>동국대학교 교육학과 전공<br>
+                  / 융합소프트웨어 연계전공</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/taegeom.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">이 태 검</h5>
+                  <p>개발자</p>
+                  <p>동국대학교 정보통신공학과 전공<br> 
+                  / 데이터사이언스 연계전공</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/person_1.jpg' %}" height="320" width="180" alt="..." />
+                  <h5 class="fw-bold mt-4 mb-1">김 제 현</h5>
+                  <p>디자이너</p>
+                  <p>방송통신대학교 미디어영상전공</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 {% endblock %}
