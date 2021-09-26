@@ -7,8 +7,12 @@
     <br>
     
     작성자 : {{post.writer}} <br>
-    해시태그 : {{post.hashtag}} <br>
-    환경 점수 : {{post.eco_score}} 점 <br>
+    해시태그 : 
+    {% for i in hashtag%}
+        #{{i}}
+    {%endfor%} <br>
+    
+    {% comment %} 환경 점수 : {{post.eco_score}} 점 <br> {% endcomment %}
     마감날짜 : {{post.deadline}} <br>
 
 	{%if post.image%}
