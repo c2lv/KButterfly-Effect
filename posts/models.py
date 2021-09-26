@@ -14,7 +14,11 @@ class Post(models.Model):
     deadline = models.DateField(auto_now=False)
     body = models.TextField()
     image = models.ImageField(upload_to="post/",null=True, blank=True)
+    like_user_set = models.ManyToManyField(User, blank=True, related_name='likes_user_set',through='Like')
 
+    @property
+    def like_count(self):
+        return self.like_user_set.count()
 
 #좋아요 모델
 class Like(models.Model):

@@ -56,7 +56,12 @@ def detail(request, id): # post 세부페이지
 
 def edit_post(request, id): # post 수정페이지
     edit_post = Post.objects.get(id=id)
-    return render(request, "posts/edit_post.html", {"post": edit_post})
+
+    hashtag_dict={}
+    jd=json.decoder.JSONDecoder()
+    hashtag=jd.decode(edit_post.hashtag)
+
+    return render(request, "posts/edit_post.html", {"post": edit_post,"hashtag":hashtag})
 
 def update(request, id): # update
     update_post = Post.objects.get(id=id)

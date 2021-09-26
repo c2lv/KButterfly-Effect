@@ -13,4 +13,6 @@ urlpatterns = [
     path('edit_post/<int:id>',edit_post,name="edit_post"),
     path('update/<int:id>',update,name="update"),
     path('delete/<int:id>',delete,name="delete"),
+    path('like_toggle/<int:post_id>/',like_toggle, name="like_toggle"),
+
 ]
