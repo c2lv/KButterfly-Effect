@@ -7,8 +7,12 @@
     <br>
     
     작성자 : {{post.writer}} <br>
-    해시태그 : {{post.hashtag}} <br>
-    환경 점수 : {{post.eco_score}} 점 <br>
+    해시태그 : 
+    {% for i in hashtag%}
+        #{{i}}
+    {%endfor%} <br>
+    
+    {% comment %} 환경 점수 : {{post.eco_score}} 점 <br> {% endcomment %}
     마감날짜 : {{post.deadline}} <br>
 
 	{%if post.image%}
@@ -19,7 +23,35 @@
     <p style="height:200px; word-wrap:break-word; overflow:scroll;">
 	{{post.body}}
     </p>
-	
+
+    <span href="#" class="like" name="{{post.id}}" value="Like">
+
+        <!-- 만약 유저가 좋아요를 눌렀다면 채운 하트로 변경 -->
+        {% if user in post.like_user_set.all %}
+        <div class="alt-service-icon">
+            <i class="fas fa-heart" id="like-icon" style="color:black;"></i>
+        </div>
+        
+        <!-- 아니면 비워진 하트 -->
+        {% else %}
+
+        <div class="alt-service-icon">
+            <i class="far fa-heart" id="like-icon" style="color:black;"></i>
+        </div>
+        
+        {% endif %}
+
+        <span id="like-count-{{ post.id }}" class="alt-services-title font-alt">
+            좋아요
+            {% if post.like_count == 0 %}
+            0개
+            {% else %}
+            {{ post.like_count }}개
+            {% endif %}
+        </span>
+    </span>
+	<br>
+    <br>
 	{% if user == post.writer %}
     <a href="{%url 'posts:edit_post' post.id%}" class="btn btn-dark">수정하기</a>
     <a href="{%url 'posts:delete' post.id%}" class="btn btn-dark">삭제하기</a>
@@ -29,4 +61,47 @@
 </section>
 
 <br>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(".like").click(function () {
+        var pk = $(this).attr('name')
+        $.ajax({
+            url: "{% url 'posts:like_toggle' post.pk %}",
+            data: {
+                'pk': pk,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            type: "POST",
+            dataType: "json",
+
+            success: function (response) {
+
+                if (response.like_count == null) {
+                    alert("로그인이 필요합니다.");
+                    window.location.replace('/accounts/login/')
+                } else {
+                    if (response.result == "like") {
+                        $('#like-icon').removeClass();
+                        $('#like-icon').addClass('fas fa-heart');
+                    } else {
+                        $('#like-icon').removeClass();
+                        $('#like-icon').addClass('far fa-heart');
+                    }
+
+                    $('#like-count-{{ post.id }}').html('좋아요 ' + response.like_count + '개');
+                }
+            },
+
+            error: function (request, status, error) {
+                alert("로그인이 필요합니다.")
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" +
+                    "error:" + error);
+            },
+        });
+    })
+    </script>
+
 {% endblock %}
