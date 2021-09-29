@@ -1953,12 +1953,6 @@ input, select, textarea {
 		transform: rotateY(0deg);
 	}
 
-	.button {
-		bottom: 0;
-		position: absolute;
-		margin-right: 40%;
-	}
-
 
 /* Main */
 
