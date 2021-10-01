@@ -1,4 +1,7 @@
 /* Base */
+.a-svg:hover{
+  fill:red;
+}
 html {
   overflow-x: hidden; }
 
