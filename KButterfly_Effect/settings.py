@@ -146,5 +146,7 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_REDIRECT_URL = "/"
 
+
+
 SITE_ID = 1
 # ACCOUNT_FORMS = {'signup': 'users.forms.SignupForm'}
