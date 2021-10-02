@@ -90,3 +90,26 @@ def deletelist(request):
 #     delete_post = Post.objects.get(id=id)
 #     delete_post.delete()
 #     return redirect("posts:postlist")
+
+def introduce(request):  # 다른 사람들도 접속하면 볼 수 있는 페이지(iframe)
+    return render(request, "users/introduce.html")
+
+def user_posts(request, id):  # 다른 사람들도 접속하면 볼 수 있는 페이지(iframe)
+    user = get_object_or_404(User, pk=id)
+    context = {
+        "user": user,
+        "posts": Post.objects.filter(writer=user),
+    }
+    return render(request, "users/user_posts.html", context)
+
+def edit(request):  # 개인만 쓸 페이지
+    cur_user = request.user
+    return render(request, "users/edit.html", {"user": cur_user})
+
+def update(request):  # 개인만 쓸 함수
+    update_profile = request.user.profile
+    update_profile.name = request.POST["name"]
+    update_profile.phnum = request.POST["phnum"]
+    update_profile.save()
+    # posts=Post.objects.all()
+    return redirect("users:introduce")

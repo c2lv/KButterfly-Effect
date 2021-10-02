@@ -10,4 +10,8 @@ urlpatterns = [
     path("updatelist/<int:id>",updatelist,name="updatelist"),
     path("addlist/<int:post_id>",addlist,name="addlist"),
     path("todolist/",todolist,name="todolist"),
+    path("introduce/", introduce, name="introduce"),
+    path("<int:id>/posts", user_posts, name="user_posts"),
+    path("edit/", edit, name="edit"),
+    path("update/", update, name="update"),
 ]
