@@ -8,6 +8,7 @@ import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime, timedelta,date
+from django.contrib.auth.models import User
 
 def mypage(request):
     posts=Post.objects.filter(writer=request.user)
