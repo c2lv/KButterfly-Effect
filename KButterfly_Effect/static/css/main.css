@@ -1824,6 +1824,18 @@ input, select, textarea {
 				}
 
 		}
+/* text_box */
+	.text_box {
+		font-size: 25px;
+		margin-top: 25% !important;
+	}
+
+	.text_box .title{
+		line-height: 1;
+	}
+	
+
+
 
 /* Header */
 
@@ -1934,7 +1946,7 @@ input, select, textarea {
 	}
 
 	.container .item.front {
-		padding: 20%;
+		padding: 10%;
 		position: absolute;
 		transform: rotateY(0deg);
 		background-color: #ffffff;
@@ -1953,6 +1965,9 @@ input, select, textarea {
 		transform: rotateY(0deg);
 	}
 
+	.aboutbox {
+		font-size: 15px;
+	}
 
 /* Main */
 
@@ -2200,6 +2215,7 @@ input, select, textarea {
 			}
 
 		}
+
 
 /* Footer */
 

@@ -229,8 +229,6 @@
               </div>
             </div>
           </div>
-          {% comment %} </div>
-          <div class="col-lg-6"> {% endcomment %}
           <div class="col-md-3">
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url({% static 'images/img_v_1.jpg' %})"></div>
@@ -271,100 +269,133 @@
     </div>
 
 
+<div class="container">
+  <div class="row justify-content-center mb-6">
+    <div class="col-lg-6 col-xxl-5 text-center mx-auto mb-7">
+      <div class="section-title">
+        <h2><strong>이달의 환경러</strong></h2><img src="{% static 'images/Ellipse 3.png' %}">
+      </div>
+      <br><br>
+    </div>
+    <div class="col-xxl-11">
+      <div class="row flex-center gx-3">
+        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center">
+          <div class="ecobox">
+            <img class="w-100" src="{% static 'images/hyeongseok.jpg' %}" height="320" width="180" alt="..." />
+              <h5 class="fw-bold mt-4 mb-1">이 형 석</h5>
+              <p>개발자 / 팀장</p>
+              <p>동국대학교 정보통신공학과 전공<br> 
+              / 광고홍보학과 복수전공</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/hyeonjun.jpg' %}" height="320" width="180" alt="..." />
+          <h5 class="fw-bold mt-4 mb-1">박 현 준</h5>
+          <p>개발자</p>
+          <p>동국대학교 교육학과 전공<br>
+          / 융합소프트웨어 연계전공</p>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/taegeom.jpg' %}" height="320" width="180" alt="..." />
+          <h5 class="fw-bold mt-4 mb-1">이 태 검</h5>
+          <p>개발자</p>
+          <p>동국대학교 정보통신공학과 전공<br> 
+          / 데이터사이언스 연계전공</p>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-center"><img class="w-100" src="{% static 'images/jehyun.jpg' %}" height="320" width="180" alt="..." />
+          <h5 class="fw-bold mt-4 mb-1">김 제 현</h5>
+          <p>디자이너</p>
+          <p>방송통신대학교 미디어영상전공</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-9">
+          <div class="col-lg-7">
             <div class="section-title">
-              <h2>Recent News</h2>
+              <h2><strong>환경관련 토픽</strong></h2><img src="{% static 'images/Ellipse 3.png' %}">
             </div>
             <div class="post-entry-2 d-flex">
-              <div class="thumbnail order-md-2" style="background-image: url({% static 'images/img_h_4.jpg' %})"></div>
               <div class="contents order-md-1 pl-0">
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
-                </div>
+                <h2><a href="{% url 'posts:blog_single' %}">코웨이 환경기술연구소 물 연구원 15명 '워터 소믈리에' 자격 취득</a></h2>
               </div>
             </div>
-
             <div class="post-entry-2 d-flex">
-              <div class="thumbnail order-md-2" style="background-image: url({% static 'images/img_h_3.jpg' %})"></div>
               <div class="contents order-md-1 pl-0">
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
-                </div>
+                <h2><a href="{% url 'posts:blog_single' %}">우리금융, 청소년 대상 ESG 환경교육 실시</a></h2>
               </div>
             </div>
-
             <div class="post-entry-2 d-flex">
-              <div class="thumbnail order-md-2" style="background-image: url({% static 'images/img_h_3.jpg' %})"></div>
               <div class="contents order-md-1 pl-0">
-                <span class="caption mb-4 d-block">Editor's Pick</span>
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
-                </div>
+                <h2><a href="{% url 'posts:blog_single' %}">강릉시, 미생물 농법으로 환경친화적 농산물 생산</a></h2>
+              </div>
+            </div>
+            <div class="post-entry-2 d-flex">
+              <div class="contents order-md-1 pl-0">
+                <h2><a href="{% url 'posts:blog_single' %}">용인시 처인구 포곡읍에 종합환경교육센터 들어선다</a></h2>
+              </div>
+            </div>
+            <div class="post-entry-2 d-flex">
+              <div class="contents order-md-1 pl-0">
+                <h2><a href="{% url 'posts:blog_single' %}">하이트진로,必환경 시대 ... '청정리사이클' 성공적 마무리 </a></h2>
+              </div>
+            </div>
+            <div class="post-entry-2 d-flex">
+              <div class="contents order-md-1 pl-0">
+                <h2><a href="{% url 'posts:blog_single' %}">건협, 방화근린공원서 환경정화 캠페인 전개</a></h2>
               </div>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-5">
             <div class="section-title">
-              <h2>Popular Posts</h2>
+              <h2><strong>인기 포스팅</strong></h2><img src="{% static 'images/Ellipse 3.png' %}">
             </div>
 
             <div class="trend-entry d-flex">
-              <div class="number align-self-start">01</div>
-              <div class="trend-contents">
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
-                </div>
+              <div class="col-lg-4" style="background-color: #4AF08C; border-radius: 40px 0px 0px 40px">
               </div>
-            </div>
-
-            <div class="trend-entry d-flex">
-              <div class="number align-self-start">02</div>
-              <div class="trend-contents">
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              <div class="col-lg-8" style="margin-top: 2%;">
+                <div class="trend-contents">
+                  <h2><a href="{% url 'posts:blog_single' %}"><strong>캠페인 완료!</strong></a></h2>
+                  <div class="post-meta">
+                    <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                    <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="trend-entry d-flex">
-              <div class="number align-self-start">03</div>
-              <div class="trend-contents">
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              <div class="col-lg-4" style="background-color: #4AF08C; border-radius: 40px 0px 0px 40px">
+              </div>
+              <div class="col-lg-8" style="margin-top: 2%;">
+                <div class="trend-contents">
+                  <h2><a href="{% url 'posts:blog_single' %}"><strong>국제환경박람회 구경후기</strong></a></h2>
+                  <div class="post-meta">
+                    <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                    <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="trend-entry d-flex pl-0">
-              <div class="number align-self-start">04</div>
-              <div class="trend-contents">
-                <h2><a href="{% url 'posts:blog_single' %}">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+            <div class="trend-entry d-flex">
+              <div class="col-lg-4" style="background-color: #4AF08C; border-radius: 40px 0px 0px 40px">
+              </div>
+              <div class="col-lg-8" style="margin-top: 2%;">
+                <div class="trend-contents">
+                  <h2><a href="{% url 'posts:blog_single' %}"><strong>캠페인 완료!</strong></a></h2>
+                  <div class="post-meta">
+                    <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                    <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  </div>
                 </div>
               </div>
             </div>
-            
+                  
             <p>
               <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
             </p>
