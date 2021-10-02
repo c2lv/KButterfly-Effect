@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     count = models.IntegerField(default=0) # 퍼온거 한횟수
+    personal_eco_point= models.IntegerField(default=0) #개인 에코점수
     name = models.CharField(max_length=64, default="")
     phnum = models.CharField(max_length=12, default="")
     image = models.ImageField(upload_to="user/", null=True)
@@ -21,6 +22,7 @@ class Todolist(models.Model):
     date_deadline=models.DateTimeField(auto_now=False) # 마감일
     pub_date = models.DateTimeField(auto_now=True) # 생성일, 사용은 X
     p_or_o = models.BooleanField(default=False) # 개인이 만든건지 공식적인건지 False는 개인 True는 공식
+    after=models.BooleanField(default=False) #시간이 지났거나 check를 눌렀을때
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

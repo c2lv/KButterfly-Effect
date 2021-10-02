@@ -14,4 +14,5 @@ urlpatterns = [
     path("<int:id>/posts", user_posts, name="user_posts"),
     path("edit/", edit, name="edit"),
     path("update/", update, name="update"),
+    path("fin/<int:id>",fin,name="fin"),
 ]

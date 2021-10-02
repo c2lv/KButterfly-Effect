@@ -27,20 +27,23 @@ def todolist(request, arrange):
     else: # 3은 지난거 보기
         now=datetime.today()
         mylist=Todolist.objects.filter(writer=user,date_deadline__lt=now).order_by('date_deadline')
+    past=arrange
+    
     start={}
     dead={}
     for i in mylist:
         start[i.id]=i.date_start.replace(microsecond=0).isoformat()[:-3]
         dead[i.id]=i.date_deadline.replace(microsecond=0).isoformat()[:-3]
         # print(start[i.id])
-    return render(request,"users/todolist.html",{"lists":mylist,"starts":start,"deads":dead})
+    return render(request,"users/todolist.html",{"lists":mylist,"starts":start,"deads":dead,"past":past})
 
 def addlist(request,post_id):
     post=get_object_or_404(Post,pk=post_id)
     post.shared+=1 # 포스트 공유 1 추가
     add_list=Todolist()
     add_list.name=post.title
-    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"+"<a href={% url 'posts:details' post.id%}>원본</a>"
+    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"
+    # "< a href={% url 'posts:details' post.id%}>원본</a>"
     add_list.writer=request.user
     add_list.date_start=post.pub_date.replace(microsecond=0).isoformat()[:-3]
     add_list.date_deadline=post.deadline.replace(microsecond=0).isoformat()[:-3]
@@ -96,10 +99,6 @@ def deletelist(request):
     }
     
     return HttpResponse(json.dumps(context),content_type="application/json")
-# def delete(request, id): # delete
-#     delete_post = Post.objects.get(id=id)
-#     delete_post.delete()
-#     return redirect("posts:postlist")
 
 def introduce(request):  # 다른 사람들도 접속하면 볼 수 있는 페이지(iframe)
     return render(request, "users/introduce.html")
@@ -125,3 +124,16 @@ def update(request):  # 개인만 쓸 함수
     update_profile.save()
     # posts=Post.objects.all()
     return redirect("users:introduce")
+
+def fin(request,id):
+    fintodo=Todolist.objects.get(id=id)
+    fintodo.after = True;
+    userprofile=request.user.profile
+    if fintodo.p_or_o==True:
+        userprofile.count+=1
+        userprofile.personal_eco_point+=1
+    print(fintodo.p_or_o)
+    print(userprofile.count)
+    fintodo.save()
+    userprofile.save()
+    return redirect("users:todolist",1)
