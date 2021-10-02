@@ -8,9 +8,10 @@ import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime, timedelta,date
+
 def mypage(request):
-  
-    return render(request,"users/mypage.html")
+    posts=Post.objects.filter(writer=request.user)
+    return render(request, "users/mypage.html",{"posts":posts})
 
 def todolist(request, arrange):
     user=request.user
