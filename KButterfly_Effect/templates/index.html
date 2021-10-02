@@ -67,22 +67,19 @@
         <h2><strong>이달의 환경러</strong></h2><img src="{% static 'images/Ellipse 3.png' %}">
       </div> -->
       <div style="width: 100%; display:flex; justify-content:space-around;">
-        <div style="width: 20%; border-radius:80px;  height:300px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);">
-          <div style="height:50%; border-radius: 80px 80px 0px 0px; background:#4AF08C;"></div>
-          <div style="height:50%; border-radius:0 0 30px 30px; text-align:center; justify-content:center;">내용적으세요</div>
-        </div>
-        <div style="width: 20%; border-radius:80px; height:300px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);">
-          <div style="height:50%; border-radius: 80px 80px 0px 0px; background:#4AF08C;"></div>
-          <div style="height:50%; border-radius:0 0 30px 30px; text-align:center; justify-content:center;">내용적으세요</div>
-        </div>
-        <div style="width: 20%; border-radius:80px; height:300px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);">
-          <div style="height:50%; border-radius: 80px 80px 0px 0px; background:#4AF08C;"></div>
-          <div style="height:50%; border-radius:0 0 30px 30px; text-align:center; justify-content:center;">내용적으세요</div>
-        </div>
-        <div style="width: 20%; border-radius:80px; height:300px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);">
-          <div style="height:50%; border-radius: 80px 80px 0px 0px; background:#4AF08C;"></div>
-          <div style="height:50%; border-radius:0 0 30px 30px; text-align:center; justify-content:center;">내용적으세요</div>
-        </div>
+        {% for top in top4%}
+          <div style="width: 20%; border-radius:80px;  height:300px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);">
+            <div style="height:50%; border-radius: 80px 80px 0px 0px; background:#4AF08C;"></div>
+            <div style="display:table; width:100%; height:50%; border-radius:0 0 80px 80px; text-align:center;">
+              <p style="display:table-cell; width:100%; vertical-align:middle;">
+                
+                <b>{{top.name}} 님</b><br>
+                {{top.count}}회 활동<br>
+                
+              </p>
+            </div>
+          </div>
+        {%endfor%}
       </div>
       
     </div>
