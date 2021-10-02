@@ -55,7 +55,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # iframe 사용 위해 주석처리
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'KButterfly_Effect.urls'
@@ -144,9 +145,9 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/index"
 
 
 
 SITE_ID = 1
-# ACCOUNT_FORMS = {'signup': 'users.forms.SignupForm'}
+ACCOUNT_FORMS = {'signup': 'users.forms.SignupForm'}
