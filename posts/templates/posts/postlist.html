@@ -9,7 +9,7 @@
             <div class="section-title">
               <h2><a style="color:black;" href="{% url 'posts:new_post' %}">글쓰기</a></h3>
             </div>
-            <div id="postlist"></div>
+            <div id="postlist" style="width:100%; justify-content:space-around;"></div>
             {% for post in posts %}
             
             <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -26,9 +26,9 @@
                     }
                     hashtag+='</span>';
                     html +=`
-                    <div class="post-entry-2 d-flex">
-                    <div class="thumbnail order-md-2" style="background-image: url({{post.image.url}});">hi</div>
-                    <div class="contents order-md-1 pl-0">
+                    <div class="post-entry-2 d-flex" style="margin-bottom:5%;">
+                    <div class="thumbnail order-md-2" style="background-image: url({{post.image.url}});"></div>
+                    <div class="contents order-md-1 pl-0" style="width:70%;">
                     <h2><a href="{% url "posts:detail" post.id %}">{{post.title}}</a></h2>
                     <p class="mb-3">{{post.body|truncatechars:30}}</p>
                     <div class="post-meta">
@@ -38,7 +38,7 @@
                     <div><a href="{% url "users:addlist" post.id %}">toodlist추가</a></div>
                     </div>
                     </div>
-                    </div>`;
+                    </div><hr>`;
                     
                     $("#postlist").append(html); 
                     

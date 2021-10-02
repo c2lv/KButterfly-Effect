@@ -4,28 +4,28 @@
 
   <br>
   <div style="display:flex;">
-      <div style="width:35%; padding:20px;">
+      <div style="width:50%; padding:20px; margin-top: 3%;">
           <p>
               <div style="text-align: center; padding: 10px 0;">
                   <img style="width: 30%;" src="{% static 'images/person_1.jpg' %}" alt="user default image">
                   <br>
                   <br>
               </div>
-              <div style="padding: 30px; border: 2px inset black; width:100%; text-align:center; word-break:break-all;">
+              <div style="padding: 30px; border: 2px inset grey; width:100%; text-align:center; word-break:break-all;">
                       
-                      <h6>ID: {{user}}</h6>
-                      <input type="button" class="btn btn-default" style="color: brown; width:100%;"
+                      <h6 style="margin-bottom:5%;">ID: {{user}}</h6>
+                      <input type="button" class="btn btn-default" style="color: black; width:100%; margin-bottom: 5%;"
                           onclick="changeIframeUrl('{%url 'users:introduce'%}')" value="사용 방법"> <br>
-                      <input type="button" class="btn btn-default" style="color: brown; width:100%;"
+                      <input type="button" class="btn btn-default" style="color: black; width:100%; margin-bottom: 5%;"
                           onclick="changeIframeUrl('{%url 'users:edit' %}')" value="내 정보 수정하기">
-                      <input type="button" class="btn btn-default" style="color: brown; width:100%;"
+                      <input type="button" class="btn btn-default" style="color: black; width:100%; margin-bottom: 5%;"
                           onclick="changeIframeUrl('{%url 'users:user_posts' user.id%}')" value="내가 올린 일">
               </div>
           </p>
       </div>
       <div style="width:65%; padding:20px;">
           <iframe id="main_frame" name="main_frame" src="{%url 'users:introduce' %}"
-              style="width:100%; height:600px; border:none;"></iframe>
+              style="width:100%; height: 120%; border:none; margin-top: 20%;"></iframe>
       </div>
   </div>
 
