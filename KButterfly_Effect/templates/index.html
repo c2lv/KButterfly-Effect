@@ -9,7 +9,13 @@
     <div class="site-section">
       <div class="container">
         <div class="half-post-entry d-block d-lg-flex bg-light">
-          <div class="img-bg" {% if a.image %} style="background-image: url({{a.image.url}})" {% endif %}></div>
+          <div class="img-bg"
+          {% if a.image %}
+          style="background-image: url({{a.image.url}})"
+          {% else %}
+          style="background-image: url({% static 'images/d2.jpg' %})"
+          {% endif %}
+          ></div>
           <div class="contents">
             <span class="caption">{{a.title_tag}}</span>
             <h2><a href="{% url "posts:detail" a.id %}">{{a.title}}</a></h2>
