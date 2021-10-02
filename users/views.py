@@ -7,13 +7,24 @@ from django.utils.timezone import timedelta
 import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from datetime import datetime, timedelta,date
 def mypage(request):
+  
     return render(request,"users/mypage.html")
 
-def todolist(request):
+def todolist(request, arrange):
     user=request.user
-    mylist=Todolist.objects.filter(writer=user)
+    if arrange==1: # 1은 진행중
+        now=datetime.today()
+        mylist=Todolist.objects.filter(writer=user,date_deadline__gt=now).order_by('date_deadline')
+    elif arrange==2: # 2은 오늘마감 보기
+        now=datetime.today()
+        today=date.today()
+        tomorrow=date.today()+timedelta(days=1)
+        mylist=Todolist.objects.filter(writer=user,date_deadline__gt=now,date_deadline__range=(today,tomorrow)).order_by('date_deadline')
+    else: # 3은 지난거 보기
+        now=datetime.today()
+        mylist=Todolist.objects.filter(writer=user,date_deadline__lt=now).order_by('date_deadline')
     start={}
     dead={}
     for i in mylist:
@@ -34,7 +45,7 @@ def addlist(request,post_id):
     add_list.pub_date=timezone.now()
     add_list.p_or_o=True
     add_list.save()
-    return redirect("users:todolist")
+    return redirect("users:todolist",1)
 
 
 def makelist(request): # 빈 투두리스트
@@ -47,7 +58,7 @@ def makelist(request): # 빈 투두리스트
     new_list.pub_date = timezone.now()
     # new_list.p_or_o=False #default값 있음
     new_list.save()
-    return redirect("users:todolist")
+    return redirect("users:todolist",1)
 
 @csrf_exempt
 def updatelist(request,id): # 빈 투두리스트
@@ -61,7 +72,7 @@ def updatelist(request,id): # 빈 투두리스트
     update_list.pub_date = timezone.now()
     # new_list.p_or_o=False #default값 있음
     update_list.save()
-    return redirect("users:todolist")
+    return redirect("users:todolist",1)
 
 @csrf_exempt
 def deletelist(request):
@@ -84,7 +95,3 @@ def deletelist(request):
     
     return HttpResponse(json.dumps(context),content_type="application/json")
     
-# def delete(request, id): # delete
-#     delete_post = Post.objects.get(id=id)
-#     delete_post.delete()
-#     return redirect("posts:postlist")

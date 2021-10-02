@@ -9,5 +9,5 @@ urlpatterns = [
     path("deletelist",deletelist,name="deletelist"),
     path("updatelist/<int:id>",updatelist,name="updatelist"),
     path("addlist/<int:post_id>",addlist,name="addlist"),
-    path("todolist/",todolist,name="todolist"),
+    path("todolist/<int:arrange>",todolist,name="todolist"),
 ]
