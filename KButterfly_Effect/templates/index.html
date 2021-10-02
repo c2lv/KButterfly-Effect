@@ -9,10 +9,10 @@
     <div class="site-section">
       <div class="container">
         <div class="half-post-entry d-block d-lg-flex bg-light">
-          <div class="img-bg" style="background-image: url({{b.image.url}})"></div>
+          <div class="img-bg" style="background-image: url({{a.image.url}})"></div>
           <div class="contents">
             <span class="caption">{{a.title_tag}}</span>
-            <h2><a href="{% url "posts:detail" b.id %}">{{a.title}}</a></h2>
+            <h2><a href="{% url "posts:detail" a.id %}">{{a.title}}</a></h2>
             <p class="mb-3"
             style="
               overflow: hidden;
@@ -127,7 +127,7 @@
           </div>
           <div class="col-lg-8" style="margin-top: 2%;">
             <div class="trend-contents">
-              <h2><a href="{% url "posts:detail" e.id %}"><strong>{{b.title}}</strong></a></h2>
+              <h2><a href="{% url "posts:detail" b.id %}"><strong>{{b.title}}</strong></a></h2>
               <div class="post-meta">
                 <span class="d-block"><a href="#">{{b.writer}}</a></span>
                 <span class="date-read">마감: {{b.deadline}}<br>{{b.shared}}명이 TODOLIST에 담아갔어요
