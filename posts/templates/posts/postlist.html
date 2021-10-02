@@ -26,16 +26,20 @@
                     }
                     hashtag+='</span>';
                     html +=`
-                    <div class="post-entry-2 d-flex" style="margin-bottom:5%;">
-                    <div class="thumbnail order-md-2" style="background-image: url({{post.image.url}});"></div>
-                    <div class="contents order-md-1 pl-0" style="width:70%;">
+                    <div class="post-entry-2 d-flex"  >
+                    <div class="thumbnail order-md-2" style="margin-right:50px;" >
+                    {%if post.image%}
+    	                <div style="height:200px; width:170px;"> <img style="width:100%; height:100%;" src="{{post.image.url}}" alt="사진"></div>
+                    {%endif%}
+                    </div>
+                    <div class="contents order-md-1 pl-0" style="width:70%; ">
                     <h2><a href="{% url "posts:detail" post.id %}">{{post.title}}</a></h2>
                     <p class="mb-3">{{post.body|truncatechars:30}}</p>
                     <div class="post-meta">
                     <span class="d-block">~{{post.deadline}}</span>
                     ${hashtag}
-                    <span class="d-block">작성자 : {{post.writer}}</span>    
-                    <div><a href="{% url "users:addlist" post.id %}">toodlist추가</a></div>
+                    <span class="d-block">작성자 : {{post.writer}}</span>    <br>
+                    <span style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; padding:3px; border:1px solid black;"><a href="{% url "users:addlist" post.id %}">toodlist추가</a></span>
                     </div>
                     </div>
                     </div><hr>`;
