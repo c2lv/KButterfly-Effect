@@ -11,7 +11,7 @@
 		<p>요약 태그 : <input style="width:500px;" value="{{post.title_tag}}" type="text" name="title_tag" required></p>
 		<p>해시 태그 : <input style="width:500px;" value="{%for i in hashtag%}{{i}}&nbsp;{% endfor%}" type="text" name="hashtag" required></p>
 		{% comment %} <p>환경 점수 : <input value="{{post.eco_score}}" type="text" name="eco_score" required></p> {% endcomment %}
-		<p>마감기한 : <input value="{{post.deadline}}" type="datetime-local" name="deadline" required>{{post.deadline}}</p>
+		<p>마감기한 : <input value="{{deadline}}" type="datetime-local" name="deadline" required></p>
 		<p>사진 : <input value="{{post.image}}" type="file" name="image">{{post.image}}</p>
 		<p>내용 : <textarea style="width: 100%;" type="text" name="body" id="" cols="50" rows="10"
 				required>{{post.body}}</textarea></p>

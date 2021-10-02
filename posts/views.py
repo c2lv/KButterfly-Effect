@@ -5,12 +5,23 @@ import json
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
-
+from datetime import datetime, timedelta,date
 
 # Create your views here.
 
-def postlist(request): # post 목록
-    posts= Post.objects.all()
+def postlist(request, arrange): # post 목록
+    user=request.user
+    if arrange==1: # 1은 진행중
+        now=datetime.today()
+        posts=Post.objects.filter(writer=user,deadline__gt=now).order_by('deadline')
+    elif arrange==2: # 2은 오늘마감 보기
+        now=datetime.today()
+        today=date.today()
+        tomorrow=date.today()+timedelta(days=1)
+        posts=Post.objects.filter(writer=user,deadline__gt=now,deadline__range=(today,tomorrow)).order_by('deadline')
+    else: # 3은 지난거 보기
+        now=datetime.today()
+        posts=Post.objects.filter(writer=user,deadline__lt=now).order_by('deadline')
 
     hashtag_dict={}
 
@@ -56,8 +67,9 @@ def edit_post(request, id): # post 수정페이지
     hashtag_dict={}
     jd=json.decoder.JSONDecoder()
     hashtag=jd.decode(edit_post.hashtag)
+    deadline=edit_post.deadline.replace(microsecond=0).isoformat()[:-3]
 
-    return render(request, "posts/edit_post.html", {"post": edit_post,"hashtag":hashtag})
+    return render(request, "posts/edit_post.html", {"post": edit_post,"hashtag":hashtag,"deadline":deadline})
 
 def update(request, id): # update
     update_post = Post.objects.get(id=id)
@@ -78,7 +90,7 @@ def update(request, id): # update
 def delete(request, id): # delete
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
-    return redirect("posts:postlist")
+    return redirect("posts:postlist",1)
 
 @require_POST
 @login_required
