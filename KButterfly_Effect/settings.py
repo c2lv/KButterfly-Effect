@@ -22,9 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'td8c^0)f(y#5hze2b&_odbtmk*q_u1(zmo!-mzz*vtw^&$)473'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'td8c^0)f(y#5hze2b&_odbtmk*q_u1(zmo!-mzz*vtw^&$)473')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
@@ -151,3 +153,8 @@ LOGIN_REDIRECT_URL = "../../index"
 
 SITE_ID = 1
 ACCOUNT_FORMS = {'signup': 'users.forms.SignupForm'}
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
