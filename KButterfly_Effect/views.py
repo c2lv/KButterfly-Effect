@@ -6,23 +6,17 @@ from users.models import Profile
 # Create your views here.
 def index(request):
     a = list(Post.objects.all().order_by("?")) # 랜덤 정렬
-    b = a[0]
-    c = a[2]
+    a2 = a[:2]
 
-    d = list(Post.objects.all().order_by('-like')) # 좋아요 순 정렬
-    e = d[0]
-    f = d[1]
-    g = d[2]
+    b = list(Post.objects.all().order_by('-like')) # 좋아요 순 정렬
+    b3 = b[:3]
 
     top=Profile.objects.all().order_by('-personal_eco_point')
     top4=top[:4]
 
     context = {
-        "b":b,
-        "c":c,
-        "e":e,
-        "f":f,
-        "g":g,
+        "a2":a2,
+        "b3":b3,
         "top4":top4,
     }
     return render(request, "index.html", context)
