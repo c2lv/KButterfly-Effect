@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime, timedelta,date
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 def mypage(request):
     posts=Post.objects.filter(writer=request.user)
@@ -37,6 +38,7 @@ def todolist(request, arrange):
         # print(start[i.id])
     return render(request,"users/todolist.html",{"lists":mylist,"starts":start,"deads":dead,"past":past})
 
+@login_required
 def addlist(request,post_id):
     post=get_object_or_404(Post,pk=post_id)
     post.shared+=1 # 포스트 공유 1 추가

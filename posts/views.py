@@ -10,18 +10,18 @@ from datetime import datetime, timedelta,date
 # Create your views here.
 
 def postlist(request, arrange): # post 목록
-    user=request.user
+    
     if arrange==1: # 1은 진행중
         now=datetime.today()
-        posts=Post.objects.filter(writer=user,deadline__gt=now).order_by('deadline')
+        posts=Post.objects.filter(deadline__gt=now).order_by('deadline')
     elif arrange==2: # 2은 오늘마감 보기
         now=datetime.today()
         today=date.today()
         tomorrow=date.today()+timedelta(days=1)
-        posts=Post.objects.filter(writer=user,deadline__gt=now,deadline__range=(today,tomorrow)).order_by('deadline')
+        posts=Post.objects.filter(deadline__gt=now,deadline__range=(today,tomorrow)).order_by('deadline')
     else: # 3은 지난거 보기
         now=datetime.today()
-        posts=Post.objects.filter(writer=user,deadline__lt=now).order_by('deadline')
+        posts=Post.objects.filter(deadline__lt=now).order_by('deadline')
 
     hashtag_dict={}
 
@@ -34,6 +34,7 @@ def postlist(request, arrange): # post 목록
     # print(hashtag_dict)
     return render(request, "posts/postlist.html",{"posts":posts,"hashtag":hashtag_dict})
 
+@login_required
 def new_post(request): # post 입력페이지
     return render(request, "posts/new_post.html")
 
@@ -52,6 +53,7 @@ def create(request): # create
     new_post.save()
     return redirect("posts:detail", new_post.id)
 
+@login_required
 def detail(request, id): # post 세부페이지
     post = get_object_or_404(Post, pk=id)
 
