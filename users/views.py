@@ -1,5 +1,6 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Todolist
+from posts.models import Post
 # Create your views here.
 from django.utils import timezone
 from django.utils.timezone import timedelta
@@ -8,6 +9,9 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 def mypage(request):
+    return render(request,"users/mypage.html")
+
+def todolist(request):
     user=request.user
     mylist=Todolist.objects.filter(writer=user)
     start={}
@@ -15,8 +19,23 @@ def mypage(request):
     for i in mylist:
         start[i.id]=i.date_start.replace(microsecond=0).isoformat()[:-3]
         dead[i.id]=i.date_deadline.replace(microsecond=0).isoformat()[:-3]
-        print(start[i.id])
-    return render(request,"users/mypage.html",{"lists":mylist,"starts":start,"deads":dead})
+        # print(start[i.id])
+    return render(request,"users/todolist.html",{"lists":mylist,"starts":start,"deads":dead})
+
+def addlist(request,post_id):
+    post=get_object_or_404(Post,pk=post_id)
+    post.shared+=1 # 포스트 공유 1 추가
+    add_list=Todolist()
+    add_list.name=post.title
+    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"+"<a href={% url 'posts:details' post.id%}>원본</a>"
+    add_list.writer=request.user
+    add_list.date_start=post.pub_date.replace(microsecond=0).isoformat()[:-3]
+    add_list.date_deadline=post.deadline.replace(microsecond=0).isoformat()[:-3]
+    add_list.pub_date=timezone.now()
+    add_list.p_or_o=True
+    add_list.save()
+    return redirect("users:todolist")
+
 
 def makelist(request): # 빈 투두리스트
     new_list = Todolist()
@@ -28,7 +47,7 @@ def makelist(request): # 빈 투두리스트
     new_list.pub_date = timezone.now()
     # new_list.p_or_o=False #default값 있음
     new_list.save()
-    return redirect("users:mypage")
+    return redirect("users:todolist")
 
 @csrf_exempt
 def updatelist(request,id): # 빈 투두리스트
@@ -42,7 +61,7 @@ def updatelist(request,id): # 빈 투두리스트
     update_list.pub_date = timezone.now()
     # new_list.p_or_o=False #default값 있음
     update_list.save()
-    return redirect("users:mypage")
+    return redirect("users:todolist")
 
 @csrf_exempt
 def deletelist(request):
