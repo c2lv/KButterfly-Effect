@@ -18,8 +18,13 @@
     <hr>
     <div style="display:flex; margin: 10px 0px; height: 25vh;">
         <div style="overflow:hidden;margin:0px 30px;width:20vh; height:20vh; border-radius:10%;">
+            {% if post.image %}
             <img src="{{ post.image.url }}" style="object-fit: cover; width:100%; height: 100%;"
             style=" border-radius:10%; background-color:lightgray; width:100%; height:100%;" alt="서잔">
+            {% else %}
+            <img src="{% static 'images/d2.jpg' %}" style="object-fit: cover; width:100%; height: 100%;"
+            style=" border-radius:10%; background-color:lightgray; width:100%; height:100%;" alt="서잔">
+            {% endif %}
         </div>
         <h3><a style="display:flex; flex-direction: column; justify-content: space-around;"
             href="" onclick="var l = open_parent_p({{post.id}})">
