@@ -11,7 +11,7 @@
           <div class="img-bg" style="background-image: url({{b.image.url}})"></div>
           <div class="contents">
             <span class="caption">{{b.title_tag}}</span>
-            <h2><a href="{% url 'posts:blog_single' %}">{{b.title}}</a></h2>
+            <h2><a href="{% url "posts:detail" b.id %}">{{b.title}}</a></h2>
             <p class="mb-3"
             style="
               overflow: hidden;
@@ -40,7 +40,7 @@
           <div class="img-bg" style="background-image: url({{c.image.url}})"></div>
           <div class="contents">
             <span class="caption">{{c.title_tag}}</span>
-            <h2><a href="{% url 'posts:blog_single' %}">{{c.title}}</a></h2>
+            <h2><a href="{% url "posts:detail" c.id %}">{{c.title}}</a></h2>
             <p class="mb-3"
             style="
               overflow: hidden;
