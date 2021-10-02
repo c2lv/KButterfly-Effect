@@ -39,7 +39,7 @@ def addlist(request,post_id):
     post.shared+=1 # 포스트 공유 1 추가
     add_list=Todolist()
     add_list.name=post.title
-    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"+"<a href={% url 'posts:details' post.id%}>원본</a>"
+    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"+"< a href={% url 'posts:details' post.id%}>원본</a>"
     add_list.writer=request.user
     add_list.date_start=post.pub_date.replace(microsecond=0).isoformat()[:-3]
     add_list.date_deadline=post.deadline.replace(microsecond=0).isoformat()[:-3]

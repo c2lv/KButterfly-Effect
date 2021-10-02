@@ -8,14 +8,14 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     title_tag = models.CharField(max_length=20) # 요약 태그
     hashtag = models.TextField(max_length=30)  #해시 태그, 여러개하면 할때마다 띄워쓰기 시키기
-    eco_score = models.IntegerField(default=0) #eco score
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now=True)
     deadline = models.DateTimeField(auto_now=False)
     body = models.TextField()
     image = models.ImageField(upload_to="post/",null=True, blank=True)
-    shared= models.IntegerField(default=0)
+    shared= models.IntegerField(default=0) #공유된 수
     like_user_set = models.ManyToManyField(User, blank=True, related_name='likes_user_set',through='Like')
+    after_dead=models.BooleanField(default=False) #데드라인이후 포스팅에 좋아요, 공유횟수가 개인 에코점수로 넘어간지 확인
 
     @property
     def like_count(self):

@@ -1,7 +1,4 @@
 /* Base */
-.a-svg:hover{
-  fill:red;
-}
 html {
   overflow-x: hidden; }
 
@@ -196,7 +193,7 @@ h1, h2, h3, h4, h5,
       top: -.3rem;
       font-family: "icomoon";
       content: "\e5ca";
-      position: absolute; }
+       }
   .ul-check.white li:before {
     color: #fff; }
   .ul-check.success li:before {
@@ -796,9 +793,8 @@ h1, h2, h3, h4, h5,
   color: #000;
   margin-bottom: 50px; }
   .section-title h2 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 400;
-    border-bottom: 1px solid #222;
     position: relative;
     display: inline-block; }
     .section-title h2:before {
@@ -1110,7 +1106,7 @@ h1, h2, h3, h4, h5,
 
 .post-entry-1, .post-entry-2 {
   font-size: .9rem;
-  margin-bottom: 30px; }
+  }
   .post-entry-1 img, .post-entry-2 img {
     margin-bottom: 30px; }
   .post-entry-1 h2, .post-entry-2 h2 {
@@ -1118,20 +1114,55 @@ h1, h2, h3, h4, h5,
     .post-entry-1 h2 a, .post-entry-2 h2 a {
       color: #000; }
 
+      
+/* ecobox */
+
+
+
+
 .post-entry-2 {
   font-size: .9rem; }
+  .post-entry-2 .ecobox {
+    position: absolute;
+    height: 50%;
+    width: 25%;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 80px;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  
+  .post-entry-2 .ecoboxtop {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 50%;
+    background-color: #4AF08C;
+
+    border-radius: 80px 80px 0px 0px;
+
+  }
+
   .post-entry-2 .thumbnail {
     background-size: cover;
     background-position: center;
     width: 30%; }
   .post-entry-2 .contents {
-    width: 70%;
     padding: 10px 20px; }
     .post-entry-2 .contents h2 {
-      font-size: 15px; }
+      font-size: 20px; }
 
 .trend-entry {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  height: 25%;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 40px; }
   .trend-entry .number {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50px;
@@ -1298,3 +1329,18 @@ h1, h2, h3, h4, h5,
 
 .single-content {
   font-size: .9rem; }
+/* 스크롤바 커스텀 */
+::-webkit-scrollbar {
+  width: 10px  !important; /* 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-track {
+  /* background: #eeeeee; 스크롤 영역 스타일
+  border-radius: 5px; 스크롤바 테두리 둥글게 */
+  display: none !important; /* 스크롤 영역 보이지 않게 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#c2e59c, #64b3f4) !important; /* 스크롤 막대 스타일 */
+  border-radius: 5px !important; /* 스크롤바 테두리 둥글게 */
+}

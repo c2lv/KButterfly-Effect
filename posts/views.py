@@ -36,7 +36,7 @@ def create(request): # create
     new_post.title_tag = request.POST["title_tag"]
     hashtag=request.POST["hashtag"].split()
     new_post.hashtag = json.dumps(hashtag)
-    # new_post.eco_score = request.POST["eco_score"]
+    
     new_post.writer = request.user
     new_post.pub_date = timezone.now()
     new_post.deadline = request.POST['deadline']
@@ -69,7 +69,7 @@ def update(request, id): # update
     update_post.title_tag = request.POST["title_tag"]
     hashtag=request.POST["hashtag"].split()
     update_post.hashtag = json.dumps(hashtag)
-    # update_post.eco_score = request.POST["eco_score"]
+    
     update_post.writer = request.user
     update_post.pub_date = timezone.now()
     update_post.deadline = request.POST['deadline']

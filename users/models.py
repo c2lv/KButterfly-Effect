@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     count = models.IntegerField(default=0) # 퍼온거 한횟수
-
+    personal_eco_point= models.IntegerField(default=0) #개인 에코점수
 
 class Todolist(models.Model):
     id = models.AutoField(primary_key=True)
