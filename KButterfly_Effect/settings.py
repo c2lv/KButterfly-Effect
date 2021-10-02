@@ -147,7 +147,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-LOGIN_REDIRECT_URL = "../../index"
+LOGIN_REDIRECT_URL = '../../index'
 
 
 
