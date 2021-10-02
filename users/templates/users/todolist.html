@@ -9,8 +9,14 @@
     <div class="img-controll" style="display: flex; width: 60%; margin:0 auto;">
         <a href="{% url 'users:makelist' %}" style="cursor:pointer; width: 4%; height: 4%; margin: 5px;"><img style="width: 100%;" src="{% static 'images/plus.svg'%}" alt="+"></a>
         <div onclick="count_check()" style="cursor:pointer; width: 4%; height: 4%; margin: 5px;"><img style="width: 100%;" src="{% static 'images/minus.svg'%}" alt="-"></div>
+        
+            
     </div>
-    <br>
+    <div style="width:80%; text-align:right;">
+        <a href="{% url 'users:todolist' 1 %}">진행중</a> &nbsp;
+        <a href="{% url 'users:todolist' 2 %}">오늘 마감</a> &nbsp;
+        <a href="{% url 'users:todolist' 3 %}">지난거</a> &nbsp;
+    </div> <br>
    <div class="todolist" style="width: 60%; margin:0 auto;">
         {% for list in lists %}   
             <script>

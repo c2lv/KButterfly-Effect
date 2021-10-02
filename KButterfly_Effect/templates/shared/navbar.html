@@ -60,7 +60,7 @@
                     <a href="{% url 'index' %}" class="nav-link text-left">Home</a>
                   </li>
                   <li>
-                    <a href="{% url 'posts:postlist' %}" class="nav-link text-left">Postlist</a>
+                    <a href="{% url 'posts:postlist' %}" class="nav-link text-left">Ecolist</a>
                   </li>
                   <li>
                     <a href="{% url 'about' %}" class="nav-link text-left">About</a>
@@ -72,7 +72,7 @@
 
                   {%if request.user.is_authenticated%}
                   <li><a href="{% url 'users:mypage' %}" class="nav-link text-left">Mypage</a></li>
-                  <li><a href="{% url 'users:todolist' %}" class="nav-link text-left">Todolist</a></li>
+                  <li><a href="{% url 'users:todolist' 1 %}" class="nav-link text-left">Todolist</a></li>
                   <li><a href="{% url 'account_logout' %}" class="nav-link text-left">Logout</a></li>
                   {%else%}
                   <li><a href="{% url 'account_login' %}" class="nav-link text-left">Login</a></li>
