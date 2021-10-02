@@ -32,26 +32,26 @@
                         <tr style="width:100%;">
                             <td style="width:5%; text-align:center; "><input type="checkbox" name="check" id="${list_id}"></td>
                             <td style="width:90%; ">                                 
-                                <input name="name" value="{{list.name}}" id="name${list_id}" onclick="scroll_name(${list_id})" style="width:100%; height:50px; cursor:pointer; margin:0 auto; text-align:center; line-height:50px;">
+                                <input name="name" value="{{list.name}}" class="name${list_id}" id="name${list_id}" onclick="scroll_name(${list_id})" style="width:100%; height:50px; cursor:pointer; margin:0 auto; text-align:center; line-height:50px;">
                             </td>
                         
                             <td style=" width: 5%;">
-                                <div onclick="finish(${list_id})" style="cursor:pointer; width: 100%; height: 100%; margin: 5px;"><img style="width: 100%;" src="{% static 'images/check.svg'%}" alt="check"></div>
+                                <a class="check${list_id}" href="{% url 'users:fin' list.id %}" style="cursor:pointer; width: 100%; height: 100%; margin: 5px;"><img style="width: 100%;" src="{% static 'images/check.svg'%}" alt="check"></a>
                             </td>
                         </tr>
                         <tr id="des-tr${list_id}" style="display: none; width:100%;">
                             <td style="width:5%; text-align:center; "></td>
                             <td style="width:90%;">
                                 <div id="description${list_id}" style="overflow:scroll; padding:15px; border:1px solid black; width:100%; height:300px; display:none;" >
-                                    <textarea style="margin-bottom:10px; width:100%; height:60%;"  name="description"> {{list.description}}</textarea>
+                                    <textarea style="margin-bottom:10px; width:100%; height:60%;" class="description${list_id}" name="description"> {{list.description}}</textarea>
                                     <div style=" overflow:scroll;">
                                     
-                                    시작 : <input type="datetime-local" value="${start}" name="date_start"> <br>
-                                    마감 : <input type="datetime-local" value="${dead}" name="date_deadline"> 
+                                    시작 : <input type="datetime-local" class="date_start${list_id}" value="${start}" name="date_start"> <br>
+                                    마감 : <input type="datetime-local" class="date_deadline${list_id}" value="${dead}" name="date_deadline"> 
                                     </div>
                                     <div style="text-align:right;">
                                     
-                                    <button type="submit">수정</button>
+                                    <button class="submit${list_id}" type="submit">수정</button>
                                     </div>
                                 </div>
                             </td>
@@ -66,12 +66,41 @@
                          
                 }
                 printlist();
+                
+                
             </script>
+            <script>
+                function past(){
+                    var past ={{past}};
+                    var list_id={{list.id}};
+                    
+                    if(past==3){
+                        console.log(past);
+                        $(`.check${list_id}`).removeAttr("href");
+                    }
+                    
+                }
+                past();
+            </script>
+            {% if list.after %}
+                <script>
+                    
+                    function finish(){
+                        var list_id={{list.id}};
+                        $(`.name${list_id}`).attr("readonly",true);
+                        $(`.name${list_id}`).css('background', 'lightgray');
+                        $(`.description${list_id}`).attr("disabled",true);
+                        $(`.date_start${list_id}`).attr("disabled",true);
+                        $(`.date_deadline${list_id}`).attr("disabled",true);
+                        $(`.submit${list_id}`).attr("disabled",true);
+                            
+                    }
+                    
+                    finish();
+                </script>
+            {% endif %}
         {%endfor%}
         <script>
-            function finsih(id){
-                
-            }
 
             function scroll_name(id){
                 $(`#des-tr${id}`).slideToggle('fast');   

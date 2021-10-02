@@ -27,13 +27,15 @@ def todolist(request, arrange):
     else: # 3은 지난거 보기
         now=datetime.today()
         mylist=Todolist.objects.filter(writer=user,date_deadline__lt=now).order_by('date_deadline')
+    past=arrange
+    
     start={}
     dead={}
     for i in mylist:
         start[i.id]=i.date_start.replace(microsecond=0).isoformat()[:-3]
         dead[i.id]=i.date_deadline.replace(microsecond=0).isoformat()[:-3]
         # print(start[i.id])
-    return render(request,"users/todolist.html",{"lists":mylist,"starts":start,"deads":dead})
+    return render(request,"users/todolist.html",{"lists":mylist,"starts":start,"deads":dead,"past":past})
 
 def addlist(request,post_id):
     post=get_object_or_404(Post,pk=post_id)
@@ -123,3 +125,14 @@ def update(request):  # 개인만 쓸 함수
     update_profile.save()
     # posts=Post.objects.all()
     return redirect("users:introduce")
+
+def fin(request,id):
+    fintodo=Todolist.objects.get(id=id)
+    fintodo.after = True;
+    userprofile=request.user.profile
+    userprofile.count+=1
+    userprofile.personal_eco_point+=1
+  
+    fintodo.save()
+    userprofile.save()
+    return redirect("users:todolist",1)
