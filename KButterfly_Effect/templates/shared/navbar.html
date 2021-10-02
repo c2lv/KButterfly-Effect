@@ -72,6 +72,7 @@
 
                   {%if request.user.is_authenticated%}
                   <li><a href="{% url 'users:mypage' %}" class="nav-link text-left">Mypage</a></li>
+                  <li><a href="{% url 'users:todolist' %}" class="nav-link text-left">Todolist</a></li>
                   <li><a href="{% url 'account_logout' %}" class="nav-link text-left">Logout</a></li>
                   {%else%}
                   <li><a href="{% url 'account_login' %}" class="nav-link text-left">Login</a></li>

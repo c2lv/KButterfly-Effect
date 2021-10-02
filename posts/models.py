@@ -11,9 +11,10 @@ class Post(models.Model):
     eco_score = models.IntegerField(default=0) #eco score
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now=True)
-    deadline = models.DateField(auto_now=False)
+    deadline = models.DateTimeField(auto_now=False)
     body = models.TextField()
     image = models.ImageField(upload_to="post/",null=True, blank=True)
+    shared= models.IntegerField(default=0)
     like_user_set = models.ManyToManyField(User, blank=True, related_name='likes_user_set',through='Like')
 
     @property
