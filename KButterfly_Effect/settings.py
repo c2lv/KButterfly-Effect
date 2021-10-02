@@ -22,7 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'td8c^0)f(y#5hze2b&_odbtmk*q_u1(zmo!-mzz*vtw^&$)473'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'td8c^0)f(y#5hze2b&_odbtmk*q_u1(zmo!-mzz*vtw^&$)473')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -59,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # iframe 사용 위해 주석처리
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'KButterfly_Effect.urls'
