@@ -9,10 +9,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def blog_single(request):
-    return render(request, "posts/blog-single.html")
-# @login_required 로그인 필요하면 사용하기 
-
 def postlist(request): # post 목록
     posts= Post.objects.all()
 
