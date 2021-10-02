@@ -119,6 +119,8 @@ def update(request):  # 개인만 쓸 함수
     update_profile = request.user.profile
     update_profile.name = request.POST["name"]
     update_profile.phnum = request.POST["phnum"]
+    if (request.FILES.get('image')): # 이미지를 제출했을 때만 이미지 업데이트
+        update_profile.image = request.FILES["image"]
     update_profile.save()
     # posts=Post.objects.all()
     return redirect("users:introduce")

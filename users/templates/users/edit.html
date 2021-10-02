@@ -8,7 +8,8 @@
             {%csrf_token%}
             <p><h1>수정하기</h1></p>
             <p>이름 : <input type="text" name="name" value="{{user.profile.name}}" required></p>
-            <p>전화번호 : <input type="text" name="phnum" value="{{user.profile.phnum}}" required></p>           
+            <p>전화번호 : <input type="text" name="phnum" value="{{user.profile.phnum}}" required></p>
+            <p>프로필 사진 : <input type="file" name="image" accept="image/*"></p>
             <button type="submit">제출</button>
         </form>
     </div>

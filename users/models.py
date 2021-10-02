@@ -11,6 +11,7 @@ class Profile(models.Model):
     personal_eco_point= models.IntegerField(default=0) #개인 에코점수
     name = models.CharField(max_length=64, default="")
     phnum = models.CharField(max_length=12, default="")
+    image = models.ImageField(upload_to="user/", null=True)
 
 class Todolist(models.Model):
     id = models.AutoField(primary_key=True)
