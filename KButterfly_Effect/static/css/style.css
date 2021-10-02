@@ -1115,7 +1115,8 @@ h1, h2, h3, h4, h5,
       color: #000; }
 
 .post-entry-2 {
-  font-size: .9rem; }
+  font-size: .9rem;
+  }
   .post-entry-2 .thumbnail {
     background-size: cover;
     background-position: center;
@@ -1214,7 +1215,6 @@ h1, h2, h3, h4, h5,
 
 .btn {
   border-radius: 30px;
-  background: #000;
   padding-left: 20px;
   padding-right: 20px;
   border-color: #000;
