@@ -42,7 +42,8 @@ def addlist(request,post_id):
     post.shared+=1 # 포스트 공유 1 추가
     add_list=Todolist()
     add_list.name=post.title
-    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"+"< a href={% url 'posts:details' post.id%}>원본</a>"
+    add_list.description=post.body+"\n 작성자 : "+str(post.writer)+"\n"
+    # "< a href={% url 'posts:details' post.id%}>원본</a>"
     add_list.writer=request.user
     add_list.date_start=post.pub_date.replace(microsecond=0).isoformat()[:-3]
     add_list.date_deadline=post.deadline.replace(microsecond=0).isoformat()[:-3]
@@ -98,10 +99,6 @@ def deletelist(request):
     }
     
     return HttpResponse(json.dumps(context),content_type="application/json")
-# def delete(request, id): # delete
-#     delete_post = Post.objects.get(id=id)
-#     delete_post.delete()
-#     return redirect("posts:postlist")
 
 def introduce(request):  # 다른 사람들도 접속하면 볼 수 있는 페이지(iframe)
     return render(request, "users/introduce.html")
@@ -130,9 +127,11 @@ def fin(request,id):
     fintodo=Todolist.objects.get(id=id)
     fintodo.after = True;
     userprofile=request.user.profile
-    userprofile.count+=1
-    userprofile.personal_eco_point+=1
-  
+    if fintodo.p_or_o==True:
+        userprofile.count+=1
+        userprofile.personal_eco_point+=1
+    print(fintodo.p_or_o)
+    print(userprofile.count)
     fintodo.save()
     userprofile.save()
     return redirect("users:todolist",1)
